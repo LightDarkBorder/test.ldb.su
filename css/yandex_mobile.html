@@ -1,0 +1,148 @@
+<style>
+    html{
+        height: 100%;
+    }
+
+    .b-page{
+        font-family: Roboto, Helvetica, Arial, sans-serif;
+        font-size: 15px;
+        font-size: 4.1vmin;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        margin: 0 auto;
+        background: #f1f1f1;
+        -webkit-text-size-adjust: none;
+        justify-content: center;
+        align-items: flex-end;
+        align-content: center;
+        flex-wrap: wrap-reverse;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    .content{
+        position: relative;
+        box-sizing: border-box;
+        padding: 0 3%;
+    }
+
+    .content_order_first{
+        order: 1;
+    }
+
+    .content_order_second{
+        order: 2;
+    }
+
+    .title{
+        font-size: 32px;
+        font-weight: normal;
+        line-height: 1.2em;
+        margin: 0 0 .6em 0;
+        color: #49565d;
+    }
+
+    .b-page .title{
+        font-size: 2em;
+    }
+
+    .text, .error-code{
+        line-height: 1.3em;
+
+        word-wrap: break-word;
+
+        color: #97a0a5;
+    }
+
+    .text{
+        font-size: 18px;
+
+        padding-bottom: 1.3em;
+    }
+
+    .b-page .text{
+        font-size: 1.1em;
+    }
+
+    .error-code{
+        font-size: 14px;
+    }
+
+    .logo{
+        box-sizing: border-box;
+        width: 30%;
+        max-width: 226px;
+        padding: 0 3%;
+
+        text-align: right;
+
+        order: 3;
+    }
+
+    .logo img{
+        display: block;
+        width: 100%;
+    }
+
+    @media (orientation: landscape){
+        .b-page{
+            font-size: 3.5vmin;
+        }
+
+        .b-page .content{
+            width: 57%;
+            max-width: none;
+        }
+
+        .b-page_type_404 .logo{
+            display: inline-flex;
+            flex-basis: 100%;
+        }
+    }
+
+    @media (orientation: portrait){
+        .b-page{
+            flex-wrap: nowrap;
+            align-items: center;
+        }
+
+        .b-page .content{
+            width: 100%;
+            padding: 0 8%;
+        }
+
+        .b-page .content_order_second{
+            margin-top: auto;
+            margin-bottom: 1em;
+            order: 3;
+        }
+
+        .b-page .logo{
+            width: 35%;
+            margin: 0 auto;
+            padding: 0;
+            text-align: center;
+            order: 2;
+        }
+
+        .b-page_type_404 .logo{
+            margin-top: auto;
+            margin-bottom: auto;
+        }
+
+        .b-page_type_404 .content_order_first{
+            margin-top: auto;
+        }
+
+        .b-page_type_404 .content_order_second{
+            margin-top: 0;
+            margin-bottom: auto;
+        }
+
+        .b-page_type_404 .text{
+            padding-bottom: 0;
+        }
+    }
+</style>

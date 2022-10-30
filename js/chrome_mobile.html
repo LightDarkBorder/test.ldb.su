@@ -1,0 +1,24 @@
+<script>
+    let mobileNav = false;
+    function onResize() {
+        const helpOuterBox = document.querySelector("#details");
+        const mainContent = document.querySelector("#main-content");
+        const mediaQuery = "(min-width: 240px) and (max-width: 420px) and " + "(min-height: 401px), " + "(max-height: 560px) and (min-height: 240px) and " + "(min-width: 421px)";
+        const detailsHidden = helpOuterBox.classList.contains("hidden");
+        if (mobileNav !== window.matchMedia(mediaQuery).matches) {
+            mobileNav = !mobileNav;
+            if (mobileNav) {
+                mainContent.classList.toggle("hidden", !detailsHidden);
+                helpOuterBox.classList.toggle("hidden", detailsHidden);
+            } else if (!detailsHidden) {
+                mainContent.classList.remove("hidden");
+                helpOuterBox.classList.remove("hidden");
+            }
+        }
+    }
+    function setupMobileNav() {
+        window.addEventListener("resize", onResize);
+        onResize();
+    }
+    document.addEventListener("DOMContentLoaded", setupMobileNav);
+</script>

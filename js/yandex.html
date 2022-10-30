@@ -1,0 +1,52 @@
+<script>
+    const ANIMATION_TIMEOUT = 400;
+    
+    function showErrorBox() {
+      if (toggleTimeout)
+        clearTimeout(toggleTimeout);
+
+      var disclosure = document.getElementById('disclosure');
+      var revealButton = document.getElementById('reveal-button');
+
+      if (gostStateString) {
+        var gostState = document.getElementById('gost-error');
+        if (gostState.innerText.length === 0) {
+          gostState.innerText = gostStateString;
+        }
+      }
+
+      document.querySelector('.error_hidden_yes').classList
+          .replace('error_hidden_yes', 'error_hidden_no');
+      revealButton.classList.add('button_hidden_yes');
+      // transition to height auto
+      disclosure.style.height = 'auto';
+      var endHeight = getComputedStyle(disclosure).height;
+      disclosure.style.height = 0;
+      if (!disclosure.classList.contains('no_animate'))
+        disclosure.style.transition = `height ease-in-out ${ANIMATION_TIMEOUT}ms`;
+      getComputedStyle(disclosure).height; // reflow
+      disclosure.style.height = endHeight;
+
+    }
+
+    function hideErrorBox() {
+      var disclosure = document.getElementById('disclosure');
+      var revealButton = document.getElementById('reveal-button');
+
+      document.querySelector('.error_hidden_no').classList
+          .replace('error_hidden_no', 'error_hidden_yes');
+
+      toggleTimeout = setTimeout(function() {
+              revealButton.classList.remove('button_hidden_yes');
+              toggleTimeout = null; },
+          ANIMATION_TIMEOUT);
+
+      if (!disclosure.classList.contains('no_animate'))
+        disclosure.style.transition = `height ease-in-out ${ANIMATION_TIMEOUT}ms`;
+      disclosure.style.height = 0;
+
+    }
+
+    var gostStateString = null;
+    var toggleTimeout = null;
+</script>
